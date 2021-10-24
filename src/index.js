@@ -82,8 +82,10 @@ class Game extends React.Component {
           'Go to move #' + move + ' ('+ ((history[move].log-1)%3+1)+','+(Math.floor((history[move].log-1)/3)+1)+')'
           : 'Go to game start';
       return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        <li key={move} className={move==this.state.stepNumber? 'selected':''}>
+          <button onClick={() => this.jumpTo(move)} className={move==this.state.stepNumber? 'selected':''}>
+              {desc}
+          </button>
         </li>
       );
     });
